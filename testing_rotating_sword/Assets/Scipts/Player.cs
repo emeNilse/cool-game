@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class playermovement : MonoBehaviour
+public class Player : Damageable
 {
     //Movement
     public float moveSpeed;
@@ -25,7 +25,7 @@ public class playermovement : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    public void PlayerUpdate()
     {
         InputManagement();
         //SwordRotate();
@@ -42,6 +42,10 @@ public class playermovement : MonoBehaviour
         float moveY = Input.GetAxisRaw("Vertical");
 
         moveDir = new Vector2(moveX, moveY).normalized;
+
+        Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector2 swordDir = mousePos - (Vector2)swordParent.position;
+        swordParent.up = swordDir.normalized;
 
         if (moveDir.x != 0)
         {
@@ -95,5 +99,10 @@ public class playermovement : MonoBehaviour
         }
         swordParent.eulerAngles = startRotation;
 
+    }
+
+    public override void Death()
+    {
+        Debug.Log("Player Died");
     }
 }
