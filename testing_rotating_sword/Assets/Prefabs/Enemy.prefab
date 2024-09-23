@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 5492684345438424606}
   - component: {fileID: -6491914523995200875}
   - component: {fileID: -9072068217667517717}
-  - component: {fileID: -5364148954800331612}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -99,7 +98,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8231dac0e69ec541abd7b7f4b1b25f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 0
+  player: {fileID: 0}
   moveSpeed: 2
+  OnKilled:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!58 &-9072068217667517717
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -135,15 +139,3 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.32
---- !u!114 &-5364148954800331612
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4621844789402091686}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7fe654e1bdc572d478bc3eae7b26b1c7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
