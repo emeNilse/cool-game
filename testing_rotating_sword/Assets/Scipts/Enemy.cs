@@ -33,6 +33,8 @@ public class Enemy : Damageable
 
     public override void Death()
     {
+        Effects.SpawnDeathFX(transform.position);
         OnKilled.Invoke(this);
+        //Destroy(gameObject);
     }
 }

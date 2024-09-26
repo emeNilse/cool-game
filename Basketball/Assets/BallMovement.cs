@@ -25,7 +25,7 @@ public class BallMovement : MonoBehaviour
     void Press()
     {
         
-        if (Input.GetKey(KeyCode.Space) && delay <= 0)
+        if (Input.GetKeyDown(KeyCode.Space) && delay <= 0)
         {
             
             strength += 0.1f;

@@ -6,6 +6,7 @@ public class EnemyStats : MonoBehaviour
 {
     public void Dead()
     {
+        
         Destroy(gameObject);
     }
 }

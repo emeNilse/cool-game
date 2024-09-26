@@ -18,6 +18,7 @@ public class Damageable : MonoBehaviour
 
     public virtual void Death()
     {
+        
         Destroy(gameObject);
     }
 }
