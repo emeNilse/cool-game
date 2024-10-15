@@ -6,7 +6,7 @@ public class Damageable : MonoBehaviour
 {
     public int maxHealth;
     int health;
-
+    //Here's a change
     public void TakeDamage(int damage)
     {
         health -= damage;
