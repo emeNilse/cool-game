@@ -6,7 +6,8 @@ public class BallMovement : MonoBehaviour
 {
     public float strength = 0f;
     public float force = 0f;
-    float delay = 0f;
+    float delay = 2f;
+    float time = 0;
     [SerializeField] GameObject ballPrefab;
     [SerializeField] GameObject shootingSpot;
     // Start is called before the first frame update
@@ -18,29 +19,30 @@ public class BallMovement : MonoBehaviour
     private void Update()
     {
         Press();
-        delay -= Time.deltaTime;
     }
 
     // Update is called once per frame
     void Press()
     {
         
-        if (Input.GetKeyDown(KeyCode.Space) && delay <= 0)
+        if (Input.GetKey(KeyCode.Space) && time < Time.time)
         {
             
-            strength += 0.1f;
+            strength += 0.01f;
+
+            
         }
-        if (Input.GetKeyUp(KeyCode.Space) || strength >= 6.5)
+        if (Input.GetKeyUp(KeyCode.Space) || strength > 6.0)
         {
             GameObject spawnedBall = Instantiate(ballPrefab, shootingSpot.transform.position, Quaternion.identity);
             spawnedBall.transform.parent = transform;
-            
+
             force = strength;
-         
+            //sprinkler effect: strength = 10f
             strength = 0f;
-            delay = 1;
+            time = Time.time + delay;
         }
-       
+
 
 
     }
